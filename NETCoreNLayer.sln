@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31605.320
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NETCoreNLayer.API", "NETCoreNLayer.API\NETCoreNLayer.API.csproj", "{F7A61DE0-16BF-4D44-AD6E-F3A2AC49826B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NETCoreNLayer.Service", "NETCoreNLayer.Service\NETCoreNLayer.Service.csproj", "{75AD8149-9DBD-46BC-870E-5F649CF36216}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F7A61DE0-16BF-4D44-AD6E-F3A2AC49826B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7A61DE0-16BF-4D44-AD6E-F3A2AC49826B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7A61DE0-16BF-4D44-AD6E-F3A2AC49826B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7A61DE0-16BF-4D44-AD6E-F3A2AC49826B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75AD8149-9DBD-46BC-870E-5F649CF36216}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75AD8149-9DBD-46BC-870E-5F649CF36216}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75AD8149-9DBD-46BC-870E-5F649CF36216}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75AD8149-9DBD-46BC-870E-5F649CF36216}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {75FFE8A5-365C-41CA-A7BE-E3B6C63B2881}
+	EndGlobalSection
+EndGlobal
