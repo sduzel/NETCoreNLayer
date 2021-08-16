@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace NETCoreNLayer.Core.UnitOfWorks
 {
-    interface IUnitOfWork
+    public interface IUnitOfWork
     {
         IProductRepository Products { get; }
         ICategoryRepository Categories { get; }
