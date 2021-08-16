@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31605.320
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NETCoreNLayer.API", "NETCoreNLayer.API\NETCoreNLayer.API.csproj", "{F7A61DE0-16BF-4D44-AD6E-F3A2AC49826B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NETCoreNLayer.API", "NETCoreNLayer.API\NETCoreNLayer.API.csproj", "{F7A61DE0-16BF-4D44-AD6E-F3A2AC49826B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NETCoreNLayer.Service", "NETCoreNLayer.Service\NETCoreNLayer.Service.csproj", "{75AD8149-9DBD-46BC-870E-5F649CF36216}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NETCoreNLayer.Service", "NETCoreNLayer.Service\NETCoreNLayer.Service.csproj", "{75AD8149-9DBD-46BC-870E-5F649CF36216}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NETCoreNLayer.Core", "NETCoreNLayer.Core\NETCoreNLayer.Core.csproj", "{9BE436A2-F112-41B6-A51D-1353DB5D46A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NETCoreNLayer.Data", "NETCoreNLayer.Data\NETCoreNLayer.Data.csproj", "{6496F6E4-F6AD-42E0-9A68-902A763C297D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{75AD8149-9DBD-46BC-870E-5F649CF36216}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75AD8149-9DBD-46BC-870E-5F649CF36216}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75AD8149-9DBD-46BC-870E-5F649CF36216}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BE436A2-F112-41B6-A51D-1353DB5D46A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BE436A2-F112-41B6-A51D-1353DB5D46A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BE436A2-F112-41B6-A51D-1353DB5D46A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BE436A2-F112-41B6-A51D-1353DB5D46A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6496F6E4-F6AD-42E0-9A68-902A763C297D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6496F6E4-F6AD-42E0-9A68-902A763C297D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6496F6E4-F6AD-42E0-9A68-902A763C297D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6496F6E4-F6AD-42E0-9A68-902A763C297D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
