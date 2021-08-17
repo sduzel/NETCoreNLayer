@@ -12,7 +12,7 @@ namespace NETCoreNLayer.Data.Repositories
     {
         public readonly DbContext _context;
         public readonly DbSet<TEntity> _dbSet;
-        public Repository(DbContext context)
+        public Repository(AppDbContext context)
         {
             _context = context;
             _dbSet = context.Set<TEntity>();
