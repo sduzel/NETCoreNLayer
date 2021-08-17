@@ -16,7 +16,7 @@ namespace NETCoreNLayer.Data.Repositories
         }
         public async Task<Category> GetWithProductsByIdAsync(int categoryId)
         {
-            return await appDbContext.Categories.Include("Product").SingleOrDefaultAsync(t => t.Id == categoryId);
+            return await appDbContext.Categories.Include(t=>t.Products).SingleOrDefaultAsync(t => t.Id == categoryId);
         }
     }
 }
