@@ -18,52 +18,60 @@ namespace NETCoreNLayer.Service
         }
         public async Task<Product> AddAsync(Product entity)
         {
-            return await _unitOfWork.Products.AddAsync(entity);
+            await _unitOfWork.Products.AddAsync(entity);
+            await _unitOfWork.CommitAsync();
+            return entity;
         }
 
-        public Task<IEnumerable<Product>> AddRangeAsync(IEnumerable<Product> entity)
+        public async Task<IEnumerable<Product>> AddRangeAsync(IEnumerable<Product> entities)
         {
-            throw new NotImplementedException();
+            await _unitOfWork.Products.AddRangeAsync(entities);
+            await _unitOfWork.CommitAsync();
+            return entities;
         }
 
-        public Task<IEnumerable<Product>> FindAsync(Expression<Func<Product, bool>> predicate)
+        public Task<IEnumerable<Product>> Where(Expression<Func<Product, bool>> predicate)
         {
-            throw new NotImplementedException();
+            return _unitOfWork.Products.Where(predicate);
         }
 
         public Task<IEnumerable<Product>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return _unitOfWork.Products.GetAllAsync();
         }
 
         public Task<Product> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return _unitOfWork.Products.GetByIdAsync(id);
         }
 
         public Task<Product> GetWithCategoryByIdAsync(int categoryId)
         {
-            throw new NotImplementedException();
+            return _unitOfWork.Products.GetWithCategoryByIdAsync(categoryId);
         }
 
-        public Product Remove(Product entity)
+        public void Remove(Product entity)
         {
-            throw new NotImplementedException();
+            _unitOfWork.Products.Remove(entity);
+            _unitOfWork.Commit();
         }
 
-        public Product RemoveRange(IEnumerable<Product> entity)
+        public void RemoveRange(IEnumerable<Product> entity)
         {
-            throw new NotImplementedException();
+            _unitOfWork.Products.RemoveRange(entity);
+            _unitOfWork.Commit();
         }
 
         public Task<Product> SingleOrDefault(Expression<Func<Product, bool>> predicate)
         {
-            throw new NotImplementedException();
+            return _unitOfWork.Products.SingleOrDefault(predicate);
         }
 
         public Product Update(Product entity)
         {
-            throw new NotImplementedException();
+            _unitOfWork.Products.Update(entity);
+            _unitOfWork.Commit();
+            return entity;
         }
     }
 }

@@ -9,12 +9,12 @@ namespace NETCoreNLayer.Core.Services
     {
         Task<TEntity> GetByIdAsync(int id);
         Task<IEnumerable<TEntity>> GetAllAsync();
-        Task<IEnumerable<TEntity>> FindAsync(Expression<Func<TEntity, bool>> predicate);
+        Task<IEnumerable<TEntity>> Where(Expression<Func<TEntity, bool>> predicate);
         Task<TEntity> SingleOrDefault(Expression<Func<TEntity, bool>> predicate);
         Task<TEntity> AddAsync(TEntity entity);
-        Task<IEnumerable<TEntity>> AddRangeAsync(IEnumerable<TEntity> entity);
-        TEntity Remove(TEntity entity);
-        TEntity RemoveRange(IEnumerable<TEntity> entity);
+        Task<IEnumerable<TEntity>> AddRangeAsync(IEnumerable<TEntity> entities);
+        void Remove(TEntity entity);
+        void RemoveRange(IEnumerable<TEntity> entity);
         TEntity Update(TEntity entity);
     }
 }
