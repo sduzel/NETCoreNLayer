@@ -21,6 +21,11 @@ namespace NETCoreNLayer.API.MapProfile
             CreateMap<Product, ProductDto>();
             CreateMap<Product, ProductCategortyDto>();
             CreateMap<ProductCategortyDto, Product>();
+
+            CreateMap<OfferDto, Offer>();
+            CreateMap<Offer, OfferDto>();
+            CreateMap<Offer, OfferProductDto>();
+            CreateMap<OfferProductDto, Offer>();
         }
     }
 }

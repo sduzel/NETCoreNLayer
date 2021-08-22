@@ -7,6 +7,7 @@ namespace NETCoreNLayer.Core.UnitOfWorks
     {
         IProductRepository Products { get; }
         ICategoryRepository Categories { get; }
+        IOfferRepository Offers { get; }
         Task CommitAsync();
         void Commit();
 

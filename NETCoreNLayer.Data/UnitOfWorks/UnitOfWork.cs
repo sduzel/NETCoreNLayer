@@ -10,8 +10,12 @@ namespace NETCoreNLayer.Data.UnitOfWorks
         private readonly AppDbContext _context;
         private ProductRepository _productRepository;
         private CategoryRepository _categoryRepository;
+        private OfferRepository _offerRepository;
         public IProductRepository Products => _productRepository = _productRepository ?? new ProductRepository(_context);
         public ICategoryRepository Categories => _categoryRepository = _categoryRepository ?? new CategoryRepository(_context);
+
+        public IOfferRepository Offers => _offerRepository = _offerRepository ?? new OfferRepository(_context);
+
         public UnitOfWork(AppDbContext appDbContext)
         {
             _context = appDbContext;
