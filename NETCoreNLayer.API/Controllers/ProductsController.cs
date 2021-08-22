@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using NETCoreNLayer.API.Dto;
+using NETCoreNLayer.Core.Models;
 using NETCoreNLayer.Core.Services;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -29,6 +30,34 @@ namespace NETCoreNLayer.API.Controllers
         {
             var products = await _productService.GetAllAsync();
             return Ok(_mapper.Map<IEnumerable<ProductDto>>(products));
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Save(ProductDto product)
+        {
+            var newProduct = await _productService.AddAsync(_mapper.Map<Product>(product));
+            return Created(string.Empty, _mapper.Map<ProductDto>(newProduct));
+        }
+
+        [HttpPut]
+        public IActionResult Update(ProductDto product)
+        {
+            _productService.Update(_mapper.Map<Product>(product));
+            return NoContent();
+        }
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            var product = _productService.GetByIdAsync(id).Result;
+            _productService.Remove(product);
+            return NoContent();
+        }
+
+        [HttpGet("{id}/category")]
+        public async Task<IActionResult> GetWithCategoryByIdAsync(int id)
+        {
+            var product = await _productService.GetWithCategoryByIdAsync(id);
+            return Ok(_mapper.Map<ProductCategortyDto>(product));
         }
     }
 }
