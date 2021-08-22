@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using NETCoreNLayer.API.Dto;
+using NETCoreNLayer.API.Filters;
 using NETCoreNLayer.Core.Models;
 using NETCoreNLayer.Core.Services;
 using System.Collections.Generic;
@@ -31,14 +32,14 @@ namespace NETCoreNLayer.API.Controllers
             var products = await _productService.GetAllAsync();
             return Ok(_mapper.Map<IEnumerable<ProductDto>>(products));
         }
-
+        [ValidationFilter]
         [HttpPost]
         public async Task<IActionResult> Save(ProductDto product)
         {
             var newProduct = await _productService.AddAsync(_mapper.Map<Product>(product));
             return Created(string.Empty, _mapper.Map<ProductDto>(newProduct));
         }
-
+        [ValidationFilter]
         [HttpPut]
         public IActionResult Update(ProductDto product)
         {

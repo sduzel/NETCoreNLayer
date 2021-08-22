@@ -5,7 +5,7 @@ namespace NETCoreNLayer.API.Dto
     public class CategoryDto
     {
         public int Id { get; set; }
-        [Required]
+        [Required(ErrorMessage ="Kategory adı giriniz!")]
         public string Name { get; set; }
     }
 }
