@@ -5,6 +5,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using NETCoreNLayer.API.Extensions;
+using NETCoreNLayer.API.Filters;
 using NETCoreNLayer.Core.Repositories;
 using NETCoreNLayer.Core.Services;
 using NETCoreNLayer.Core.UnitOfWorks;
@@ -28,6 +30,7 @@ namespace NETCoreNLayer.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddAutoMapper(typeof(Startup));
+            services.AddScoped<NotFoundFilter>();
             services.AddDbContext<AppDbContext>(options =>
             {
                 options.UseSqlServer(Configuration["ConnectionStrings:SqlConnString"].ToString(),
@@ -38,7 +41,9 @@ namespace NETCoreNLayer.API
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-            services.AddControllers();
+            services.AddControllers(options=> {
+                options.Filters.Add(new ValidationFilter());
+            });
             services.Configure<ApiBehaviorOptions>(o =>
             {
                 o.SuppressModelStateInvalidFilter = true;
@@ -52,7 +57,7 @@ namespace NETCoreNLayer.API
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseCustomException();
             app.UseHttpsRedirection();
 
             app.UseRouting();

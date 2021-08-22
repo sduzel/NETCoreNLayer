@@ -20,6 +20,7 @@ namespace NETCoreNLayer.API.Controllers
             _productService = productService;
             _mapper = mapper;
         }
+        [ServiceFilter(typeof(NotFoundFilter))]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
@@ -32,20 +33,19 @@ namespace NETCoreNLayer.API.Controllers
             var products = await _productService.GetAllAsync();
             return Ok(_mapper.Map<IEnumerable<ProductDto>>(products));
         }
-        [ValidationFilter]
         [HttpPost]
         public async Task<IActionResult> Save(ProductDto product)
         {
             var newProduct = await _productService.AddAsync(_mapper.Map<Product>(product));
             return Created(string.Empty, _mapper.Map<ProductDto>(newProduct));
         }
-        [ValidationFilter]
         [HttpPut]
         public IActionResult Update(ProductDto product)
         {
             _productService.Update(_mapper.Map<Product>(product));
             return NoContent();
         }
+        [ServiceFilter(typeof(NotFoundFilter))]
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
@@ -53,7 +53,7 @@ namespace NETCoreNLayer.API.Controllers
             _productService.Remove(product);
             return NoContent();
         }
-
+        [ServiceFilter(typeof(NotFoundFilter))]
         [HttpGet("{id}/category")]
         public async Task<IActionResult> GetWithCategoryByIdAsync(int id)
         {
